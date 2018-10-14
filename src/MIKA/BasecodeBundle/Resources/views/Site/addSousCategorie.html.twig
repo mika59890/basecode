@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    Ajouter une sous-catégorie - {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-2 col-md-2">
+                {% include '@MIKABasecode/Site/menu.html.twig' %}
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <div class="well">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

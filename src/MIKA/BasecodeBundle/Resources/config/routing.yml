@@ -1,0 +1,67 @@
+mika_basecode_homepage:
+    path:     /
+    defaults: { _controller: MIKABasecodeBundle:Site:accueil }
+
+mika_basecode_ajout_categorie:
+    path:     /ajoutCategorie
+    defaults: { _controller: MIKABasecodeBundle:Site:addcategorie }
+
+mika_basecode_modifier_categorie:
+        path:     /modifierCategorie/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:modifiercategorie }
+        requirements:
+            id:    \d+
+
+mika_basecode_supprimer_categorie:
+        path:     /supprimerCategorie/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:supprimercategorie }
+        requirements:
+            id:    \d+
+
+mika_basecode_sous_categorie:
+    path:     /categorie/{id}
+    defaults: { _controller: MIKABasecodeBundle:Site:souscategorie }
+    requirements:
+        id:    \d+
+
+mika_basecode_ajout_sous_categorie:
+    path:     /ajoutSousCategorie
+    defaults: { _controller: MIKABasecodeBundle:Site:addsouscategorie }
+
+mika_basecode_modifier_sous_categorie:
+        path:     /modifierSousCategorie/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:modifiersouscategorie }
+        requirements:
+            id:    \d+
+
+mika_basecode_supprimer_sous_categorie:
+        path:     /supprimerSousCategorie/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:supprimersouscategorie }
+        requirements:
+            id:    \d+
+
+mika_basecode_ajout_article:
+    path:     /ajoutArticle/{id}
+    defaults: { _controller: MIKABasecodeBundle:Site:addarticle }
+
+mika_basecode_article:
+    path:     /article/{id}
+    defaults: { _controller: MIKABasecodeBundle:Site:article }
+    requirements:
+        id:    \d+
+
+mika_basecode_choix_ajout_article:
+    path:     /choix
+    defaults: { _controller: MIKABasecodeBundle:Site:accueil }
+
+mika_basecode_modifier_article:
+        path:     /modifierarticle/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:modifierarticle }
+        requirements:
+            id:    \d+
+
+mika_basecode_supprimer_article:
+        path:     /supprimerArticle/{id}
+        defaults: { _controller: MIKABasecodeBundle:Site:supprimerarticle }
+        requirements:
+            id:    \d+

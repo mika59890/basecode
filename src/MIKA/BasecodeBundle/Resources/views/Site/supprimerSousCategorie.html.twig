@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    Supprimer une sous-catégorie - {{ parent() }}
+{% endblock %}
+{% block body %}
+    <h2>Supprimer une sous-catégorie de la catégorie "{{ sousCategorie.categorie.nomCategorie }}"</h2>
+    <a href="{{ path('mika_basecode_sous_categorie', {'id': sousCategorie.categorie.id}) }}" class="btn btn-default">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Retour aux sous-categories
+    </a>
+    {% if nbArticles == 0 %}
+        <p>
+            Etes-vous certain de vouloir supprimer la sous-catégorie "{{ sousCategorie.nomSousCategorie }}" ?
+        </p>
+        {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+        <form action="{{ path('mika_basecode_supprimer_sous_categorie', {'id': sousCategorie.id}) }}" method="post">
+            {# Ici j'ai écrit le bouton de soumission à la main #}
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    {% else %}
+        <p>Vous ne pouvez pas supprimer la sous-catégorie "{{ sousCategorie.nomSousCategorie }}", elle contient {{ nbArticles }} article(s).</p>
+    {% endif %}
+{% endblock %}

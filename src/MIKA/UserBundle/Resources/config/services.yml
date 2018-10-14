@@ -1,0 +1,4 @@
+services:
+#    mika_user.example:
+#        class: MIKAUserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

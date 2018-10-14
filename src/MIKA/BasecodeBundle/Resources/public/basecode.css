@@ -1,0 +1,36 @@
+
+/*GENERAL*/
+body
+{
+    margin-top: 5em;
+}
+ul
+{
+    list-style: none;
+}
+/*PAGE D'ACCUEIL*/
+.accueil img
+{
+    height: 10em;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.accueil
+{
+    text-align: center;
+}
+/*PAGE LOGIN*/
+.droite
+{
+    text-align: right;
+}
+.center
+{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}

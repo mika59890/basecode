@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}BaseCode{% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% block stylesheets %}
+            {# On charge le CSS de bootstrap depuis le site directement #}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{asset('bundles/mikabasecode/basecode.css')}}">
+            <link rel="stylesheet" href="{{asset('bundles/mikabasecode/highlight/styles/monokai.css')}}">
+
+        {% endblock %}
+    </head>
+    <body>
+        <header class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <a href="{{ path('mika_basecode_homepage') }}">BaseCode</a>
+                    </div>
+                </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <hr />
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <p>&copy; Copyright {{ "now"|date('Y') }} - Mika</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="{{ asset('bundles/mikabasecode/js/bouton.js') }}"></script>
+        <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
+        <script src="{{asset('bundles/mikabasecode/highlight/highlight.pack.js')}}"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        {% block javascripts %}
+
+        {% endblock %}
+    </body>
+</html>

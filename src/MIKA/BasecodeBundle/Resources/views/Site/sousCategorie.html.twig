@@ -1,0 +1,39 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    {{ categorie.nomCategorie }}- {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 ">
+                {% include '@MIKABasecode/Site/menu.html.twig' %}
+                <a href="#" onclick = "toggle()">Gérer les sous-catégories</a>
+            </div>
+            <div class="col-lg-10 col-md-10">
+                <h2>{{ categorie.nomCategorie }}</h2>
+                <ul class="thumbnails ">
+                    {% for sousCategorie in listSousCategorie %}
+                        <div class="thumbnails accueil">
+                        <li class="col-lg-4 col-md-4 ">
+                            <a href="{{ path('mika_basecode_article', {'id' : sousCategorie.id}) }}">
+                                <img src="{{asset(sousCategorie.imageSousCategorie.webPath)}}" alt="{{ sousCategorie.imageSousCategorie.alt }}"/>
+                            </a>
+                            <p>{{ sousCategorie.nomSousCategorie }}</p>
+                            <a href="{{ path('mika_basecode_modifier_sous_categorie', {'id': sousCategorie.id}) }}"  class="btn btn-default boutoncategorie">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Modifier
+                            </a>
+                            <a href="{{ path('mika_basecode_supprimer_sous_categorie', {'id': sousCategorie.id}) }}" class="btn btn-danger boutoncategorie">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                Supprimer
+                            </a>
+                        </li>
+                        </div>
+                    {% else %}
+                        <li>Pas (encore !) de sous-catégories</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

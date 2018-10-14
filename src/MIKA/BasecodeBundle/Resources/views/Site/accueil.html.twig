@@ -1,0 +1,49 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    Accueil- {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 ">
+                {% include '@MIKABasecode/Site/menu.html.twig' %}
+                <a href="#" onclick = "toggle()">Gérer les catégories</a>
+            </div>
+            <div class="col-lg-10 col-md-10">
+                {% if app.request.attributes.get('_route') == 'mika_basecode_choix_ajout_article' %}
+                    <h2>Choisir une catégorie</h2>
+                {% else %}
+                    <h2>Liste des catégories </h2>
+                {% endif %}
+                <ul class="thumbnails ">
+                    {% for categorie in listCategories %}
+                        <div class="thumbnails accueil">
+                        <li class="col-lg-4 col-md-4 ">
+                        {% if app.request.attributes.get('_route') == 'mika_basecode_choix_ajout_article' %}
+                            <a href="{{ path('mika_basecode_ajout_article', {'id' : categorie.id}) }}">
+                                <img src="{{asset(categorie.imageCategorie.webPath)}}" alt="{{ categorie.imageCategorie.alt }}"/>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('mika_basecode_sous_categorie', {'id' : categorie.id}) }}">
+                                <img src="{{asset(categorie.imageCategorie.webPath)}}" alt="{{ categorie.imageCategorie.alt }}"/>
+                            </a>
+                            <p>{{ categorie.nomCategorie }}</p>
+                            <a href="{{ path('mika_basecode_modifier_categorie', {'id': categorie.id}) }}"  class="btn btn-default boutoncategorie">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Modifier
+                            </a>
+                            <a href="{{ path('mika_basecode_supprimer_categorie', {'id': categorie.id}) }}" class="btn btn-danger boutoncategorie">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                Supprimer
+                            </a>
+                        {% endif %}
+                        </li>
+                        </div>
+                    {% else %}
+                        <li>Pas (encore !) de catégories</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

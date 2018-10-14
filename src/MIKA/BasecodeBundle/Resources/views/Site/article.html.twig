@@ -1,0 +1,41 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    {{ sousCategorie.categorie.nomCategorie }} - {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 ">
+                {% include '@MIKABasecode/Site/menu.html.twig' %}
+                <a href="#" onclick = "toggle()">Gérer les articles</a>
+            </div>
+            <div class="col-lg-10 col-md-10">
+                <h2>{{ sousCategorie.categorie.nomCategorie }} {{ sousCategorie.nomSousCategorie }}</h2>
+                <a href="{{ path('mika_basecode_sous_categorie', {'id': sousCategorie.categorie.id}) }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Retour aux sous-categories
+                </a>
+                <ul >
+                    {% for article in listArticle %}
+                        <li class="col-lg-12 col-md-12 ">
+                            <h3>{{ article.titre }}</h3>
+                            <br>
+                            {{ article.contenu | raw }}
+                            <br>
+                            <a href="{{ path('mika_basecode_modifier_article', {'id': article.id}) }}"  class="btn btn-default boutoncategorie">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Modifier
+                            </a>
+                            <a href="{{ path('mika_basecode_supprimer_article', {'id': article.id}) }}" class="btn btn-danger boutoncategorie">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                Supprimer
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>Pas (encore !) d'articles</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
