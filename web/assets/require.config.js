@@ -1,6 +1,10 @@
 var components = {
     "packages": [
         {
+            "name": "elfinder",
+            "main": "elfinder-built.js"
+        },
+        {
             "name": "jquery",
             "main": "jquery-built.js"
         },
