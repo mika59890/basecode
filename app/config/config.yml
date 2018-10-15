@@ -96,7 +96,7 @@ fos_user:
             enabled: true
 
 fm_elfinder:
-    assets_path: /Symfony/web/assets
+    assets_path: /Symfony2/web/assets
     instances:
         ckeditor:
             locale: locale% # defaults to current request locale
