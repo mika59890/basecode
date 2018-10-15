@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new MIKA\UserBundle\MIKAUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle(),
             
         ];
 
